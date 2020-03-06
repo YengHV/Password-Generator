@@ -1,0 +1,7 @@
+make vairables for charaters.
+Prompt user for password criteria.
+generate 8-128 characters with or without criteria.
+make a for loop to generate the password.
+input user responses from the prompts.
+take inputs and generate password accordingly. 
+have password respond.
