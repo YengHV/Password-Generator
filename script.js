@@ -3,62 +3,76 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword("");
+  // I changed the generatePassword function to my varible passwordGen to render my random password generater. Unfortunately, it will only render once. For some reason I would not have it render with the function generatePassword.
+  var password = passwordGen;
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 
 }
+// I made a varible passLength to grab the user desired length.
+var passLength = prompt ("Pick a number between 8 - 128.");
+// varibles of upper, lower, numbers, and symnols.
+var passUpper = ["QWERTYUIOPASDFGHJKLZXCVBNM"];
+var passLower = ["qwertyuiopasdfghjklzxcvbnm"];
+var passNum =[1234567890];
+var passSym = ["!@#$%^&*"];
+//an empty string varible
+var passwordGen="";
+// a function to grab the user desired length.
+// I console logged it to see if what would happen if the wrong input was entered.
+function getpassLength(){
+  if (passLength < 8 || passLength > 128) {
+    alert ("Password needs to be 8 - 128 characters");
+    console.log("incorrect length");
+  }
+    
+  else {
+    console.log(passLength);
+  }
+}
+// truthy or falsy choices to get user input.
+var confirmUpper = confirm ("would you like upper case letters");
+var confirmLower = confirm ("would you like lower case letters");
+var confirmNum = confirm ("would you like numbers?");
+var confirmSym = confirm ("would you like symbols?");
+var addInpass = "";
+
+//A function to make if statements and combine it with a varible that I named addInpass.
+//this varible will take all the confirm choice that the user would like.
+function confirmChoice(){
+
+  if (confirmUpper == true){
+    addInpass += passUpper;
+  }
+  if (confirmLower == true){
+    addInpass += passLower;
+  }
+  if (confirmNum == true){
+    addInpass += passNum;
+  }
+  if (confirmSym == true){
+    addInpass += passSym;
+  }
+// console logged to see if the "if" statements were able to correctly combine the truthy choices.
+  console.log(addInpass);
+
+}
+
+// a function to randomly generate the addInpass vairble with the user choice.
+function generatePassword(){
+  
+  for (var i = 0; i < passLength; i++){
+  passwordGen += addInpass[Math.floor(Math.random() * addInpass.length)]
+  console.log(password);
+}}
+
+
+// called the functions getpassLenth, confirmChoice, and generatePassword.
+getpassLength();
+confirmChoice();
+generatePassword();
+
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-// add a funtion to the button
-function bfunction() {
-//make and define varibles
-  var charUpper = ["Q,W,E,R,T,Y,U,I,O,P,A,S,D,F,G,H,J,K,L,Z,X,C,V,B,N,M"];
-
-  var char = ["q,w,e,r,t,y,u,i,o,p,a,s,d,f,g,h,j,k,l,z,x,c,v,b,n,m"];
-
-  var num = ["0,1,2,3,4,5,6,7,8,9"];
-
-  var sym = ["!,@,#,$,%,^,&,*,?"];
-
-
-  
-  
-//prompts to take user input
-    var passlength = prompt ("how many characters would you like your password to be?");
-
-    if (passlength < 8 || passlength > 128){
-        
-        alert("Password must be 8-128 characters")
-    }
-
-    var userlength = passlength;
-    //confirm if user wants uppercase
-    var confirmUppercase = confirm ("would you like Uppercase letters included?");
-    //confim if user wants numbers
-    var confirmNumber = confirm ("would you like numbers included");
-    //confirm if user wants special charaters
-    var confirmSp = confirm ("would you like special characters?");
-    
-    //if statements
-    if (
-      (confirmUppercase === true) ||
-      (confirmNumber === true) ||
-      (confirmSp === true)
-    ) {
-      //having trouble making the for loop to generate the passworld
-      for (var i = 0; i < char.length; i++) {
-        var userpassword = Math.round(Math.random(char.length) * userlength)
-        
-      
-      
-      }
-    
-
-  
-    }
-      
-
-    }

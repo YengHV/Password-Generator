@@ -1,7 +1,9 @@
+On load, user is prompted with questions for a random password generater.
 make vairables for charaters.
 Prompt user for password criteria.
 generate 8-128 characters with or without criteria.
-make a for loop to generate the password.
+make a for loop to randomly generate the password.
 input user responses from the prompts.
+combine all user choices correctly.
 take inputs and generate password accordingly. 
 have password respond.
